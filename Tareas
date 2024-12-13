@@ -1,0 +1,20 @@
+adrian: controlar bugs/pruebas
+
+carlos: documentador
+
+manuel: github, tablero
+
+sandra: main
+
+
+
+lista de cosas->
+// Main que controla entrada/salida
+//Clase tablero (array8x8)
+Clase movimientoValido
+Clase Peon (dificil) - Manuel, Carlos
+Clase Caballo (dificil) - Manuel, Carlos
+Clase Alfil (dificil?) - Sandra, Adrian
+Clase Torre (fácil) - Adrian
+Clase Reina (fácil una vez tenemos alfil y torre) 
+Clase Rey (la más fácil) - Sandra
