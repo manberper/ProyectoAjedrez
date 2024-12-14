@@ -9,6 +9,7 @@ public class Peon {
 
 
     public String[] movimiento(String posicion, String color) {
+        Tablero tablero = new Tablero();
         char distancia = posicion.charAt(0);
         int altura = posicion.charAt(1);
         int numero = Integer.MAX_VALUE;
@@ -51,6 +52,8 @@ public class Peon {
         } ;
 
         String[] movimientos = new String[contadorMovimientos];
+
+        tablero.setTablero(altura, distancia, );
 
     return movimientos;
     }

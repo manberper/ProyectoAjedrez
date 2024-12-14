@@ -9,4 +9,12 @@ public class Tablero {
             {"A2", "B2", "C2", "D2", "E2", "F2", "G2", "H2"},
             {"A1", "B1", "C1", "D1", "E1", "F1", "G1", "H1"}
     };
+
+    public String[][] getTablero() {
+        return tablero;
+    }
+
+    public void setTablero(String[][] tablero, String pieza, String color) {
+        this.tablero = tablero;
+    }
 }
