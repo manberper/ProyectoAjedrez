@@ -1,10 +1,10 @@
-public class PeonPrueba {
+public class Peon {
     private String posicion;
     private String color;
     private char columna;
     private int fila;
 
-    public PeonPrueba(String posicion, String color) {
+    public Peon(String posicion, String color) {
         this.posicion = posicion;
         this.color = color;
         this.columna = posicion.charAt(0);
@@ -34,17 +34,7 @@ public class PeonPrueba {
         if (contadorMovimientos > 1) {
             filaActual += 1;
             movimientos[1] = String.valueOf((char) ('a' + numero - 1)) + filaActual;
-            ;
         }
         return movimientos;
-    }
-
-    public static void print(String[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i]);
-            if (i < array.length - 1) {
-                System.out.print(", ");
-            }
-        }
     }
 }
