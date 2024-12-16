@@ -4,36 +4,54 @@ public class Peon {
     private char columna;
     private int fila;
 
+    //Constructor. Se le pide al usuario la posición y el color.
     public Peon(String posicion, String color) {
         this.posicion = posicion;
         this.color = color;
+        //Se asignan valores a las variables columna y fila con los datos que nos da el usuario.
         this.columna = posicion.charAt(0);
         this.fila = Character.getNumericValue(posicion.charAt(1));
-
-        if (fila < 0 || fila > 8 || columna < 'a' || columna > 'h') {
+        //Comprobar que no se introduzca ningún valor fuera del rango del tablero.
+        if (fila < 0 || fila > 8 || columna > 'h') {
             throw new IllegalArgumentException("Posición fuera de los límites del tablero.");
         }
     }
 
     public String[] calculaMovimiento() {
-        int numero = columna - 'a' + 1;
+        //Variable número para convertir la letra de la columna tipo String en int:
+        int numeroFila = columna - 'a' + 1;
+        /*Explicación de la variable:
+        'a' = 97, 'b' = 98, 'c' = 99, etc.
+        columna = 'c'
+        99 - 97 + 1 = 3
+        numero = 3 / Pasa de 'c' a 3.*/
+
         int filaActual = this.fila;
         int contadorMovimientos = 0;
 
-        if ((fila == 2 && color.equals("blanco")) || (fila == 7 && color.equals("negro"))) {
+        //Comprobar cantidad de movimientos posibles:
+        if ((filaActual == 2 && color.equalsIgnoreCase("blanco")) || (filaActual == 7 && color.equalsIgnoreCase("negro"))) {
             contadorMovimientos = 2;
         } else {
             contadorMovimientos = 1;
-            this.fila += 1;
         }
 
         String[] movimientos = new String[contadorMovimientos];
-        filaActual += 1;
-        movimientos[0] = String.valueOf((char) ('a' + numero - 1)) + filaActual;
+        if (color.equalsIgnoreCase("blanco")) {
+            filaActual += 1;
+        } else {
+            filaActual -= 1;
+        }
+
+        movimientos[0] = String.valueOf((char) ('a' + numeroFila - 1)) + filaActual;
 
         if (contadorMovimientos > 1) {
-            filaActual += 1;
-            movimientos[1] = String.valueOf((char) ('a' + numero - 1)) + filaActual;
+            if (color.equalsIgnoreCase("blanco")) {
+                filaActual += 1;
+            } else {
+                filaActual -= 1;
+            }
+            movimientos[1] = String.valueOf((char) ('a' + numeroFila - 1)) + filaActual;
         }
         return movimientos;
     }
