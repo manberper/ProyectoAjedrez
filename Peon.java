@@ -20,7 +20,7 @@ public class Peon {
     public String[] calculaMovimiento() {
         //Variable número para convertir la letra de la columna tipo String en int:
         int numeroFila = columna - 'a' + 1;
-        /*Explicación de la variable:
+        /*Explicación de la variable numeroFila:
         'a' = 97, 'b' = 98, 'c' = 99, etc.
         columna = 'c'
         99 - 97 + 1 = 3
@@ -44,7 +44,7 @@ public class Peon {
         }
 
         movimientos[0] = String.valueOf((char) ('a' + numeroFila - 1)) + filaActual;
-        /*Explicación de ('a' + numeroFila - 1):
+        /*Explicación de ('a' + numeroFila - 1) para pasar la columna de número a letra:
         'a' = 97 | numeroFila = 2
         97 + 2 - 1 = 98
         98 = 'b' | La fila número 2 es la b*/
