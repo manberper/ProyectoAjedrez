@@ -26,8 +26,9 @@ public class Main {
         switch (pieza) {
             case "peon":
                 int numeroLetra = extraeNumero(letra);
-                String[] setPeon = new String(pieza, color, numeroLetra, num);
+                String[] setPeon = {"peon", "color", "numeroLetra", "num"};
                 tablero.setTablero(setPeon);
+
                 break;
 
             case "torre":
