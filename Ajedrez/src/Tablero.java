@@ -15,15 +15,19 @@ public class Tablero {
     public Tablero() {
     }
 
-//    public Tablero(int[][] tablero) {
-//        this.tablero = tablero;
-//    }
 
     public String[][] getTablero(int x, int y) {
         return tablero;
     }
 
-    public void setTablero(String[][] tablero) {
-        this.tablero = tablero;
+    public void setTablero(String[] pieza) {
+        //     String peon = new String(pieza, color, extraeLetra(letra), num);
+       String color = pieza[0];
+       String nombre = pieza[1];
+       int numLetra = Integer.parseInt(pieza[2]);
+       int numero = Integer.parseInt(pieza[3]);
+
+       tablero[numLetra][numero] = nombre;
+
     }
 }
