@@ -7,7 +7,7 @@ public class Main {
         return numeroFila;
     }
     public static char extraeLetra(int numLetra){
-        String letra = String.valueOf((char) ('a' + letra - 1));
+        String letra = String.valueOf((char) ('a' + numLetra - 1));
         int letraInt = Integer.parseInt(letra);
         char letrafinal = (char) letraInt;
 
