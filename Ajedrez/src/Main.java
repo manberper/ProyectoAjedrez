@@ -2,7 +2,17 @@ public class Main {
     public static void main(String[] args) {
         tablero();
     }
+    public static int extraeNumero(char letra){
+        int numeroFila = letra - 'a' + 1;
+        return numeroFila;
+    }
+    public static char extraeLetra(int numLetra){
+        String letra = String.valueOf((char) ('a' + letra - 1));
+        int letraInt = Integer.parseInt(letra);
+        char letrafinal = (char) letraInt;
 
+        return letrafinal;
+    }
     public static void tablero() {
         // Imprimir la cabecera de las columnas
         System.out.print("   ");
