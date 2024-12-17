@@ -22,12 +22,12 @@ public class Tablero {
 
     public void setTablero(String[] pieza) {
         //     String peon = new String(pieza, color, extraeLetra(letra), num);
-       String color = pieza[0];
-       String nombre = pieza[1];
+       String nombre = pieza[0];
+       String color = pieza[1];
        int numLetra = Integer.parseInt(pieza[2]);
        int numero = Integer.parseInt(pieza[3]);
 
-       tablero[numLetra][numero] = nombre;
+       tablero[numLetra][numero] = pieza[0];
 
     }
 }

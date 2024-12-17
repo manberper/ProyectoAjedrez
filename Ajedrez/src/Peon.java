@@ -42,8 +42,10 @@ public class Peon {
         int [] movimientos = new int[2];
 
 
-        if (tablero.getTablero(columnaActual, filaActual+contador).equals(null)){
-            if (tablero.getTablero(columnaActual, filaActual + 1).equals(null)){
+        if (tablero.getTablero(columnaActual, filaActual + contador) == null){
+            System.out.println(tablero.getTablero(columnaActual,filaActual+contador));
+            if (tablero.getTablero(columnaActual, filaActual + 1) == null){
+                System.out.println(tablero.getTablero(columnaActual,filaActual+1));
                 movimientos[0] = columnaActual;
                 movimientos[1] = filaActual+contador;
             }

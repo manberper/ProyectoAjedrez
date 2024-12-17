@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -19,15 +20,26 @@ public class Main {
         System.out.println("Introduce la columna de la pieza (A-H): ");
         char letra = sc.next().charAt(0);
 
+        int numeroLetra = extraeNumero(letra);
 
         System.out.println("Introduce el número de la fila de la pieza (1-8): ");
         int num = sc.nextInt();
 
         switch (pieza) {
             case "peon":
-                int numeroLetra = extraeNumero(letra);
-                String[] setPeon = {"peon", "color", "numeroLetra", "num"};
+
+                String numLetra = Integer.toString(numeroLetra);
+                String numNum = Integer.toString(num);
+
+                Peon peon = new Peon("color", numeroLetra, num);
+
+                String[] setPeon = {"peon", "color", numLetra, numNum};
+//                System.out.println(setPeon[2]);
+//                System.out.println(setPeon[3]);
                 tablero.setTablero(setPeon);
+
+                System.out.println(Arrays.toString(peon.movimientosPosibles()));
+               // System.out.println(Arrays.deepToString(tablero.getTablero(numeroLetra, num)));
 
                 break;
 
