@@ -60,8 +60,12 @@ public class Main {
                 break;
 
             case "rey":
-
+                //Tablero posicion = new Tablero();
+                //System.out.println(posicion.getPosicion(7, 4));
                 break;
+
+            case "1":
+
 
             default:
                 System.out.println("Pieza invalida");
