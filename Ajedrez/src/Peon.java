@@ -34,10 +34,20 @@ public class Peon {
 
         //Comprobar cantidad de movimientos posibles:
         if ((filaActual == 2 && color.equalsIgnoreCase("blanco")) || (filaActual == 7 && color.equalsIgnoreCase("negro"))) {
-            System.out.println("Primer movimiento del peon, deseas avanzar 1 o 2 casillas?");
-            contador = sc.nextInt();
+//            System.out.println("Primer movimiento del peon, deseas avanzar 1 o 2 casillas?");
+//            contador = sc.nextInt();
+            if (color.equals("blanco")){
+                System.out.println("Las posiciones posibles desde la posición actual son:");
+                System.out.print(tablero.getPosicion(columnaActual +2,filaActual+2));
+                System.out.print(tablero.getPosicion(columnaActual +1,filaActual+1));
+            } else if (color.equals("negro")) {
+                System.out.println("Las posiciones posibles desde la posición actual son:");
+                System.out.print(tablero.getPosicion(columnaActual -2,filaActual -2));
+                System.out.print(tablero.getPosicion(columnaActual -1,filaActual -1));
+            }
         } else {
-            contador = 1;
+            System.out.println("Las posiciones posibles desde la posición actual son:");
+            System.out.print(tablero.getPosicion(columnaActual +1,filaActual+1));
         }
         int [] movimientos = new int[2];
 
