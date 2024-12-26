@@ -7,52 +7,69 @@ public class Main {
 
         System.out.println("Bienvenido al calculador de movimientos de ajedrez.");
 
-        // Se elige una pieza
-        System.out.println("Selecciona una pieza (Peon, Torre, Alfil, Caballo, Reina, Rey): ");
-        String pieza = sc.nextLine().toLowerCase();
+            //Elegir pieza
+            System.out.println("Elige una de las siguientes piezas: (Torre, Peon, Caballo, Alfil, Rey, Reina");
+            String pieza = sc.nextLine().toLowerCase();
 
-        // Se elige un color
-        System.out.println("Selecciona un color (Blanco, Negro)");
-        String color = sc.nextLine().toLowerCase();
+            //Elegir color
+            System.out.println("Seleccione el color que desee: (Blanco/Negro");
+            String color = sc.nextLine().toLowerCase();
 
-        // Se elige la posición de la pieza
-        System.out.println("Introduce la columna de la pieza (A-H): ");
-        char letra = sc.next().charAt(0);
-
-
-        System.out.println("Introduce el número de la fila de la pieza (1-8): ");
-        int num = sc.nextInt();
+            //Elegir la posición
+            System.out.println("Introduce la columna de la pieza (A-H): ");
+            char columnaChar = sc.next().charAt(0);
 
 
-        switch (pieza) {
-            case "peon":
+            System.out.println("Introduce el número de la fila de la pieza (1-8): ");
+            int fila = sc.nextInt();
 
-                break;
+        Tablero tablero = new Tablero();
+        int columna = columnaChar - 'a' + 1;
+            switch (pieza) {
+                case "peon":
+                    //Instancia peón
+                    Peon peon= new Peon(color, fila, columna);
+                    peon.movimientosPosibles();
+                    break;
 
-            case "torre":
+                case "torre":
 
-                break;
+                    break;
 
-            case "alfil":
+                case "alfil":
+                    //Instancia alfil
+                    Alfil alfil= new Alfil(columna, fila, color);
+                    alfil.mostrarMovimientos();
+                    break;
 
-                break;
+                case "caballo":
+                    //Instancia caballo
+                    Caballo caballo= new Caballo(color, fila, columna);
 
-            case "caballo":
+                    //Obtener posibles posiciones
+                    String[] posicionesCaballo = caballo.getPosiciones(tablero);
 
-                break;
+                    // Mostrar las posiciones posibles
+                    System.out.println("Las posiciones posibles para el caballo son:");
+                    for (String posicion : posicionesCaballo) {
+                        System.out.println(posicion);
+                    }
+                    break;
 
-            case "reina":
+                case "reina":
 
-                break;
+                    break;
 
-            case "rey":
+                case "rey":
+                    //Instancia rey
+                    Rey rey = new Rey(columna, fila, color);
+                    rey.mostrarMovimientos();
+                    break;
 
-                break;
-
-            default:
-                System.out.println("Pieza invalida");
-                break;
+                default:
+                    System.out.println("Pieza invalida");
+                    break;
+            }
         }
-
     }
-}
+

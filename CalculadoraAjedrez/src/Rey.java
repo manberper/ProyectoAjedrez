@@ -12,10 +12,12 @@ public class Rey {
     }
 
     public int getColumna() {
+
         return columna;
     }
 
     public void setColumna(int columna) {
+
         this.columna = columna;
     }
 
@@ -24,14 +26,17 @@ public class Rey {
     }
 
     public void setFila(int fila) {
+
         this.fila = fila;
     }
 
     public String getColor() {
+
         return color;
     }
 
     public void setColor(String color) {
+
         this.color = color;
     }
 
