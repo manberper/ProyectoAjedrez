@@ -9,11 +9,11 @@ public class Main {
         System.out.println("Bienvenido al calculador de movimientos de ajedrez.");
 
             //Elegir pieza
-            System.out.println("Elige una de las siguientes piezas: (Torre, Peon, Caballo, Alfil, Rey, Reina");
+            System.out.println("Elige una de las siguientes piezas: (Torre, Peon, Caballo, Alfil, Rey, Reina)");
             String pieza = sc.nextLine().toLowerCase();
 
             //Elegir color
-            System.out.println("Seleccione el color que desee: (Blanco/Negro");
+            System.out.println("Seleccione el color que desee: (Blanco/Negro)");
             String color = sc.nextLine().toLowerCase();
 
             //Elegir la posición
@@ -25,16 +25,20 @@ public class Main {
             int fila = sc.nextInt();
 
         Tablero tablero = new Tablero();
+        String piezaUnicode = "";
         int columna = columnaChar - 'a' + 1;
             switch (pieza) {
                 case "peon":
-                    //Instancia peón
-//                    Peon peon= new Peon(color, fila, columna);
-//                    peon.movimientosPosibles();
-//
+                    // Se importa la pieza y se imprimen los movimientos posibles
                     Peon2 peon2= new Peon2(color, fila, columna);
-
-                    System.out.println(Arrays.toString(peon2.getPosiciones(tablero)));
+                    System.out.println("Los movimientos posibles son: "+Arrays.toString(peon2.getPosiciones(tablero)));
+                    if (color.equals("blanco")){
+                        piezaUnicode = "♟";
+                    }
+                    else piezaUnicode = "♙";
+                    System.out.println();
+                    // Usamos el tablero para imprimir una representación visual
+                    tablero.imprimirTablero(fila,columna,peon2.getPosiciones(tablero),piezaUnicode);
 
                     break;
 

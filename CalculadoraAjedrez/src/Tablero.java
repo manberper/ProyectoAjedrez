@@ -64,4 +64,33 @@ public class Tablero {
         }
         return null;
     }
+
+    public void imprimirTablero(int filaPieza, int columnaPieza, String[] movimientos, String simboloPieza) {
+        char[][] tableroVisual = new char[8][8];
+
+        // Inicializar el tablero vacío con casillas alternadas
+        for (int fila = 0; fila < 8; fila++) {
+            for (int columna = 0; columna < 8; columna++) {
+                tableroVisual[fila][columna] = ((fila + columna) % 2 == 0) ? '□' : '■'; // Unicode para cuadros blancos y negros
+            }
+        }
+
+        // Colocar la pieza en el tablero
+        tableroVisual[filaPieza - 1][columnaPieza - 1] = simboloPieza.charAt(0);
+
+        // Marcar los movimientos posibles
+        for (String movimiento : movimientos) {
+            int columna = movimiento.charAt(0) - 'A';
+            int fila = Character.getNumericValue(movimiento.charAt(1)) - 1;
+            tableroVisual[fila][columna] = 'X';
+        }
+
+        // Imprimir la representación visual del tablero
+        for (int fila = 7; fila >= 0; fila--) {
+            for (int columna = 0; columna < 8; columna++) {
+                System.out.print(tableroVisual[fila][columna] + " ");
+            }
+            System.out.println();
+        }
+    }
 }
