@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -28,8 +29,13 @@ public class Main {
             switch (pieza) {
                 case "peon":
                     //Instancia peón
-                    Peon peon= new Peon(color, fila, columna);
-                    peon.movimientosPosibles();
+//                    Peon peon= new Peon(color, fila, columna);
+//                    peon.movimientosPosibles();
+//
+                    Peon2 peon2= new Peon2(color, fila, columna);
+
+                    System.out.println(Arrays.toString(peon2.getPosiciones(tablero)));
+
                     break;
 
                 case "torre":
