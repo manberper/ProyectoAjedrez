@@ -55,15 +55,16 @@ public class Main {
                 case "caballo":
                     //Instancia caballo
                     Caballo caballo= new Caballo(color, fila, columna);
+                    System.out.println("Los movimientos posibles son: "+ Arrays.toString(caballo.getPosiciones(tablero)));
 
-                    //Obtener posibles posiciones
-                    String[] posicionesCaballo = caballo.getPosiciones(tablero);
-
-                    // Mostrar las posiciones posibles
-                    System.out.println("Las posiciones posibles para el caballo son:");
-                    for (String posicion : posicionesCaballo) {
-                        System.out.println(posicion);
+                    if (color.equals("blanco")){
+                        piezaUnicode = "♞";
                     }
+                    else piezaUnicode = "♘";
+                    System.out.println();
+                    // Usamos el tablero para imprimir una representación visual
+                    tablero.imprimirTablero(fila,columna,caballo.getPosiciones(tablero),piezaUnicode);
+
                     break;
 
                 case "reina":
