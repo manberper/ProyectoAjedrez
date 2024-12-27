@@ -1,12 +1,15 @@
-import java.util.Scanner;
-
-public class Peon {
+public class Peon2 {
     private String color;
     private int fila;
     private int columna;
 
+//    public Peon(String color, int fila, int columna) {
+//        this.color = color.toLowerCase();
+//        this.fila = fila;
+//        this.columna = columna;
+//    }
 
-    public Peon(String color, int fila, int columna) {
+    public Peon2(String color, int fila, int columna) {
         this.color = color.toLowerCase();
         this.fila = fila;
         this.columna = columna;
