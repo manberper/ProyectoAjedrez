@@ -48,9 +48,8 @@ public class Main {
 
             case "alfil":
                 //Instancia alfil
-                Alfil alfil= new Alfil(columna, fila, color);
-                System.out.println("Los movimientos posibles para el Alfil son: ");
-                alfil.mostrarMovimientos();
+                Alfil alfil= new Alfil(color, fila, columna);
+                System.out.println("Los movimientos posibles son: "+ Arrays.toString(alfil.getPosiciones(tablero)));
                 if (color.equals("blanco")){
                     piezaUnicode = "♝";
                 }
@@ -82,8 +81,7 @@ public class Main {
             case "rey":
                 //Instancia rey
                 Rey rey = new Rey(columna, fila, color);
-                System.out.println("Los movimientos posibles del Rey son:");
-                rey.mostrarMovimientos();
+                System.out.println("Los movimientos posibles son: "+ Arrays.toString(rey.getPosiciones(tablero)));
                 if (color.equals("blanco")){
                     piezaUnicode = "♚";
                 }
