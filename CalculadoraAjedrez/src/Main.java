@@ -49,7 +49,15 @@ public class Main {
             case "alfil":
                 //Instancia alfil
                 Alfil alfil= new Alfil(columna, fila, color);
+                System.out.println("Los movimientos posibles para el Alfil son: ");
                 alfil.mostrarMovimientos();
+                if (color.equals("blanco")){
+                    piezaUnicode = "♝";
+                }
+                else piezaUnicode = "♗";
+                System.out.println();
+                // Imprimir tablero con la pieza en la posición indicada
+                tablero.imprimirTablero(fila, columna, alfil.getPosiciones(tablero), piezaUnicode);
                 break;
 
             case "caballo":
@@ -74,7 +82,16 @@ public class Main {
             case "rey":
                 //Instancia rey
                 Rey rey = new Rey(columna, fila, color);
+                System.out.println("Los movimientos posibles del Rey son:");
                 rey.mostrarMovimientos();
+                if (color.equals("blanco")){
+                    piezaUnicode = "♚";
+                }
+                else piezaUnicode = "♔";
+                System.out.println();
+                // Usamos el tablero para imprimir una representación visual
+                tablero.imprimirTablero(fila, columna, rey.getPosiciones(tablero), piezaUnicode);
+
                 break;
 
             default:
