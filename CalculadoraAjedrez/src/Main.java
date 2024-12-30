@@ -8,25 +8,78 @@ public class Main {
 
         System.out.println("Bienvenido al calculador de movimientos de ajedrez.");
 
-        //Elegir pieza
-        System.out.println("Elige una de las siguientes piezas: (Torre, Peon, Caballo, Alfil, Rey, Reina)");
-        String pieza = sc.nextLine().toLowerCase();
+        // Elegir pieza
+        String pieza = "";
+        while (true) {
+            try {
+                System.out.println("Elige una de las siguientes piezas: (Torre, Peon, Caballo, Alfil, Rey, Reina)");
+                pieza = sc.nextLine().toLowerCase();
+                if (pieza.equals("peon") || pieza.equals("torre") || pieza.equals("alfil") || pieza.equals("caballo") || pieza.equals("reina") || pieza.equals("rey")) {
+                    break;
+                } else {
+                    System.out.println("Pieza no válida, por favor elija una de las opciones: Torre, Peon, Caballo, Alfil, Rey, Reina.");
+                }
+            } catch (Exception e) {
+                System.out.println("Entrada inválida. Intenta nuevamente.");
+                sc.next(); // Limpiar el buffer
+            }
+        }
 
-        //Elegir color
-        System.out.println("Seleccione el color que desee: (Blanco/Negro)");
-        String color = sc.nextLine().toLowerCase();
+        // Elegir color
+        String color = "";
+        while (true) {
+            try {
+                System.out.println("Seleccione el color que desee: (Blanco/Negro)");
+                color = sc.nextLine().toLowerCase();
+                if (color.equals("blanco") || color.equals("negro")) {
+                    break;
+                } else {
+                    System.out.println("Color no válido, por favor elija entre Blanco o Negro.");
+                }
+            } catch (Exception e) {
+                System.out.println("Entrada inválida. Intenta nuevamente.");
+                sc.next(); // Limpiar el buffer
+            }
+        }
 
-        //Elegir la posición
-        System.out.println("Introduce la columna de la pieza (A-H): ");
-        char columnaChar = sc.next().charAt(0);
+        // Elegir la posición de la pieza (columna)
+        int columna = 0;
+        while (true) {
+            try {
+                System.out.println("Introduce la columna de la pieza (A-H): ");
+                char columnaChar = sc.next().charAt(0);
+                if (columnaChar >= 'A' && columnaChar <= 'H') {
+                    columna = columnaChar - 'A' + 1;
+                    break;
+                } else {
+                    System.out.println("Columna no válida. Debe ser una letra entre A y H.");
+                }
+            } catch (Exception e) {
+                System.out.println("Entrada inválida. Intenta nuevamente.");
+                sc.next(); // Limpiar el buffer
+            }
+        }
 
+        // Elegir la fila
+        int fila = 0;
+        while (true) {
+            try {
+                System.out.println("Introduce el número de la fila de la pieza (1-8): ");
+                fila = sc.nextInt();
+                if (fila >= 1 && fila <= 8) {
+                    break;
+                } else {
+                    System.out.println("Número de fila no válido. Debe estar entre 1 y 8.");
+                }
+            } catch (Exception e) {
+                System.out.println("Entrada inválida. Intenta nuevamente.");
+                sc.next(); // Limpiar el buffer
+            }
+        }
 
-        System.out.println("Introduce el número de la fila de la pieza (1-8): ");
-        int fila = sc.nextInt();
 
         Tablero tablero = new Tablero();
         String piezaUnicode = "";
-        int columna = columnaChar - 'a' + 1;
         switch (pieza) {
             case "peon":
                 // Se importa la pieza y se imprimen los movimientos posibles
