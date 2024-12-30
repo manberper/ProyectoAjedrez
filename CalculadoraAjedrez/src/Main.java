@@ -43,7 +43,16 @@ public class Main {
                 break;
 
             case "torre":
-
+                //Instancia torre
+                Torre torre= new Torre(columna, fila, color);
+                System.out.println("Los movimientos posibles son: "+ Arrays.toString(torre.getPosiciones(tablero)));
+                if (color.equals("blanco")){
+                    piezaUnicode = "♜";
+                }
+                else piezaUnicode = "♖";
+                System.out.println();
+                // Imprimir tablero con la pieza en la posición indicada
+                tablero.imprimirTablero(fila, columna, torre.getPosiciones(tablero), piezaUnicode);
                 break;
 
             case "alfil":
