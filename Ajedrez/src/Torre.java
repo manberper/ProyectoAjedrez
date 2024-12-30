@@ -6,56 +6,40 @@ public class Torre {
     private int fila;
     private String color;
 
-    public Torre(int columna) {
+    public Torre(int columna, int fila, String color) {
         this.columna = columna;
-    }
-
-    public int getColumna() {
-        return columna;
-    }
-
-    public void setColumna(int columna) {
-        this.columna = columna;
-    }
-
-    public int getFila() {
-        return fila;
-    }
-
-    public void setFila(int fila) {
         this.fila = fila;
+        this.color = color.toLowerCase();
     }
 
-    public String getColor() {
-        return color;
-    }
+    public String[] getPosiciones(Tablero tablero){
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+        int[][] movimientos = {
+                                  //Posibles movimientos horizontales y verticales.
+                                 {0,1} , {0,2} , {0,3} , {0,4} , {0,5} , {0,6} , {0,7} ,
 
-    public void mostrarMovimientos(){
+                                 {1,0} , {2,0} , {3,0} , {4,0} , {5,0} , {6,0} , {7,0}
+        };
 
-        Tablero tablero = new Tablero();
-        Scanner sc = new Scanner(System.in);
 
-        //Movimiento horizontal
-        for (int i = fila; i <8;i++) {
-            for (int j = columna; j < 8; j++) {
+        String[] posiblesMovimientos = new String[8];
+        int index = 0;
 
-                System.out.println("¿Podemos avanzar?(S/N)");
-                i++;
+        for (int[] movimiento : movimientos) {
+            int nuevaFila = fila + movimiento[0];
+            int nuevaColumna = columna + movimiento[1];
+            if (tablero.esPosicionValida(nuevaFila, nuevaColumna)) {
+                posiblesMovimientos[index++] = tablero.obtenerPosicion(nuevaFila, nuevaColumna);
             }
         }
 
-        //Movimiento vertical
-        for (int i = fila; i <8;i++) {
-            for (int j = columna; j < 8; j++) {
+        // Filtrar movimientos nulos
+        return filtrarMovimientos(posiblesMovimientos, index);
+    }
 
-                System.out.println("¿Podemos avanzar?(S/N)");
-                j++;
-            }
-        }
-
+    private String[] filtrarMovimientos(String[] movimientos, int size) {
+        String[] filtrados = new String[size];
+        System.arraycopy(movimientos, 0, filtrados, 0, size);
+        return filtrados;
     }
 }
