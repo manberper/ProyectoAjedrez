@@ -84,7 +84,17 @@ public class Main {
                 break;
 
             case "reina":
+                //Instancia reina
+                Reina reina= new Reina(columna, fila, color);
+                System.out.println("Los movimientos posibles son: "+ Arrays.toString(reina.getPosiciones(tablero)));
 
+                if (color.equals("blanco")){
+                    piezaUnicode = "♛";
+                }
+                else piezaUnicode = "♕";
+                System.out.println();
+                // Usamos el tablero para imprimir una representación visual
+                tablero.imprimirTablero(fila,columna,reina.getPosiciones(tablero),piezaUnicode);
                 break;
 
             case "rey":
