@@ -16,23 +16,23 @@ public class Caballo {
         };
 
         String[] posiblesMovimientos = new String[8];
-        int index = 0;
+        int cont = 0;
 
         for (int[] movimiento : movimientos) {
             int nuevaFila = fila + movimiento[0];
             int nuevaColumna = columna + movimiento[1];
             if (tablero.esPosicionValida(nuevaFila, nuevaColumna)) {
-                posiblesMovimientos[index++] = tablero.obtenerPosicion(nuevaFila, nuevaColumna);
+                posiblesMovimientos[cont++] = tablero.obtenerPosicion(nuevaFila, nuevaColumna);
             }
         }
 
-        // Filtrar movimientos nulos
-        return filtrarMovimientos(posiblesMovimientos, index);
+        // Filtrar movimientos
+        return filtrarMovimientos(posiblesMovimientos, cont);
     }
 
-    private String[] filtrarMovimientos(String[] movimientos, int size) {
-        String[] filtrados = new String[size];
-        System.arraycopy(movimientos, 0, filtrados, 0, size);
+    private String[] filtrarMovimientos(String[] movimientos, int num) {
+        String[] filtrados = new String[num];
+        System.arraycopy(movimientos, 0, filtrados, 0, num);
         return filtrados;
     }
 }

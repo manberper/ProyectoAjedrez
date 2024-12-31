@@ -3,12 +3,6 @@ public class Peon2 {
     private int fila;
     private int columna;
 
-//    public Peon(String color, int fila, int columna) {
-//        this.color = color.toLowerCase();
-//        this.fila = fila;
-//        this.columna = columna;
-//    }
-
     public Peon2(String color, int fila, int columna) {
         this.color = color.toLowerCase();
         this.fila = fila;
@@ -32,13 +26,13 @@ public class Peon2 {
             posiblesMovimientos[cont++] = tablero.obtenerPosicion(fila + 2 * direccion, columna);
         }
 
-        // Filtrar movimientos nulos
+        // Filtrar movimientos
         return filtrarMovimientos(posiblesMovimientos, cont);
     }
 
-    private String[] filtrarMovimientos(String[] movimientos, int size) {
-        String[] filtrados = new String[size];
-        System.arraycopy(movimientos, 0, filtrados, 0, size);
+    private String[] filtrarMovimientos(String[] movimientos, int num) {
+        String[] filtrados = new String[num];
+        System.arraycopy(movimientos, 0, filtrados, 0, num);
         return filtrados;
     }
 }

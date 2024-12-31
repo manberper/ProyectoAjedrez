@@ -1,6 +1,3 @@
-import java.sql.SQLOutput;
-import java.util.Scanner;
-
 public class Alfil {
     private String color;
     private int fila;
@@ -52,13 +49,13 @@ public class Alfil {
             }
         }
 
-        // Filtrar movimientos nulos
+        // Filtrar movimientos
         return filtrarMovimientos(posiblesMovimientos, cont);
     }
 
-    private String[] filtrarMovimientos(String[] movimientos, int size) {
-        String[] filtrados = new String[size];
-        System.arraycopy(movimientos, 0, filtrados, 0, size);
+    private String[] filtrarMovimientos(String[] movimientos, int num) {
+        String[] filtrados = new String[num];
+        System.arraycopy(movimientos, 0, filtrados, 0, num);
         return filtrados;
     }
 }
