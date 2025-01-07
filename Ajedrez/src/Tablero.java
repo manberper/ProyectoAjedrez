@@ -71,7 +71,12 @@ public class Tablero {
         // Inicializar el tablero vacío con casillas alternadas
         for (int fila = 0; fila < 8; fila++) {
             for (int columna = 0; columna < 8; columna++) {
-                tableroVisual[fila][columna] = ((fila + columna) % 2 == 0) ? '□' : '■'; // Unicode para cuadros blancos y negros
+                // Usamos una estructura if-else en lugar del operador ternario
+                if ((fila + columna) % 2 == 0) {
+                    tableroVisual[fila][columna] = '□'; // Casilla blanca
+                } else {
+                    tableroVisual[fila][columna] = '■'; // Casilla negra
+                }
             }
         }
 
@@ -79,9 +84,9 @@ public class Tablero {
         tableroVisual[filaPieza - 1][columnaPieza - 1] = simboloPieza.charAt(0);
 
         // Marcar los movimientos posibles
-        for (String movimiento : movimientos) {
-            int columna = movimiento.charAt(0) - 'A';
-            int fila = Character.getNumericValue(movimiento.charAt(1)) - 1;
+        for (String i : movimientos) {
+            int columna = i.charAt(0) - 'A';
+            int fila = Character.getNumericValue(i.charAt(1)) - 1;
             tableroVisual[fila][columna] = 'X';
         }
 

@@ -1,26 +1,21 @@
-public class Torre {
-    private int columna;
-    private int fila;
-    private String color;
+public class Caballo {
+    private final String color;
+    private final int fila;
+    private final int columna;
 
-    public Torre(int columna, int fila, String color) {
-        this.columna = columna;
-        this.fila = fila;
+    public Caballo(String color, int fila, int columna) {
         this.color = color.toLowerCase();
+        this.fila = fila;
+        this.columna = columna;
     }
 
-    public String[] getPosiciones(Tablero tablero){
-
+    public String[] getPosiciones(Tablero tablero) {
         int[][] movimientos = {
-                // Movimientos horizontales
-                {0, 1}, {0, 2}, {0, 3}, {0, 4}, {0, 5}, {0, 6}, {0, 7},
-                {0, -1}, {0, -2}, {0, -3}, {0, -4}, {0, -5}, {0, -6}, {0, -7},
-                // Movimientos verticales
-                {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}, {6, 0}, {7, 0},
-                {-1, 0}, {-2, 0}, {-3, 0}, {-4, 0}, {-5, 0}, {-6, 0}, {-7, 0}
+                {2, 1}, {2, -1}, {-2, 1}, {-2, -1},
+                {1, 2}, {1, -2}, {-1, 2}, {-1, -2}
         };
 
-        String[] posiblesMovimientos = new String[28]; // Máximo de movimientos posibles para una torre
+        String[] posiblesMovimientos = new String[8];
         int cont = 0;
 
         for (int[] movimiento : movimientos) {
