@@ -118,7 +118,12 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         System.out.println("Bienvenido al calculador de movimientos de ajedrez.");
+
+        int sel = -1;
+
+        do {
 
         // Elegir pieza
         String pieza = pieza();
@@ -134,94 +139,98 @@ public class Main {
 
         Tablero tablero = new Tablero();
         String piezaUnicode;
-        switch (pieza) {
-            case "peon":
-                // Se importa la pieza y se imprimen los movimientos posibles
-                Peon2 peon2= new Peon2(color, fila, columna);
-                System.out.println("Los movimientos posibles son: "+ Arrays.toString(peon2.getPosiciones(tablero)));
-                if (color.equals("blanco")){
-                    piezaUnicode = "♟";
-                }
-                else piezaUnicode = "♙";
-                System.out.println();
-                // Usamos el tablero para imprimir una representación visual
-                tablero.imprimirTablero(fila,columna,peon2.getPosiciones(tablero),piezaUnicode);
+            switch (pieza) {
+                case "peon":
+                    // Se importa la pieza y se imprimen los movimientos posibles
+                    Peon2 peon2 = new Peon2(color, fila, columna);
+                    System.out.println("Los movimientos posibles son: " + Arrays.toString(peon2.getPosiciones(tablero)));
+                    if (color.equals("blanco")) {
+                        piezaUnicode = "♟";
+                    } else piezaUnicode = "♙";
+                    System.out.println();
+                    // Usamos el tablero para imprimir una representación visual
+                    tablero.imprimirTablero(fila, columna, peon2.getPosiciones(tablero), piezaUnicode);
 
-                break;
+                    break;
 
-            case "torre":
-                //Instancia torre
-                Torre torre= new Torre(columna, fila, color);
-                System.out.println("Los movimientos posibles son: "+ Arrays.toString(torre.getPosiciones(tablero)));
-                if (color.equals("blanco")){
-                    piezaUnicode = "♜";
-                }
-                else piezaUnicode = "♖";
-                System.out.println();
-                // Imprimir tablero con la pieza en la posición indicada
-                tablero.imprimirTablero(fila, columna, torre.getPosiciones(tablero), piezaUnicode);
-                break;
+                case "torre":
+                    //Instancia torre
+                    Torre torre = new Torre(columna, fila, color);
+                    System.out.println("Los movimientos posibles son: " + Arrays.toString(torre.getPosiciones(tablero)));
+                    if (color.equals("blanco")) {
+                        piezaUnicode = "♜";
+                    } else piezaUnicode = "♖";
+                    System.out.println();
+                    // Imprimir tablero con la pieza en la posición indicada
+                    tablero.imprimirTablero(fila, columna, torre.getPosiciones(tablero), piezaUnicode);
+                    break;
 
-            case "alfil":
-                //Instancia alfil
-                Alfil alfil= new Alfil(color, fila, columna);
-                System.out.println("Los movimientos posibles son: "+ Arrays.toString(alfil.getPosiciones(tablero)));
-                if (color.equals("blanco")){
-                    piezaUnicode = "♝";
-                }
-                else piezaUnicode = "♗";
-                System.out.println();
-                // Imprimir tablero con la pieza en la posición indicada
-                tablero.imprimirTablero(fila, columna, alfil.getPosiciones(tablero), piezaUnicode);
-                break;
+                case "alfil":
+                    //Instancia alfil
+                    Alfil alfil = new Alfil(color, fila, columna);
+                    System.out.println("Los movimientos posibles son: " + Arrays.toString(alfil.getPosiciones(tablero)));
+                    if (color.equals("blanco")) {
+                        piezaUnicode = "♝";
+                    } else piezaUnicode = "♗";
+                    System.out.println();
+                    // Imprimir tablero con la pieza en la posición indicada
+                    tablero.imprimirTablero(fila, columna, alfil.getPosiciones(tablero), piezaUnicode);
+                    break;
 
-            case "caballo":
-                //Instancia caballo
-                Caballo caballo= new Caballo(color, fila, columna);
-                System.out.println("Los movimientos posibles son: "+ Arrays.toString(caballo.getPosiciones(tablero)));
+                case "caballo":
+                    //Instancia caballo
+                    Caballo caballo = new Caballo(color, fila, columna);
+                    System.out.println("Los movimientos posibles son: " + Arrays.toString(caballo.getPosiciones(tablero)));
 
-                if (color.equals("blanco")){
-                    piezaUnicode = "♞";
-                }
-                else piezaUnicode = "♘";
-                System.out.println();
-                // Usamos el tablero para imprimir una representación visual
-                tablero.imprimirTablero(fila,columna,caballo.getPosiciones(tablero),piezaUnicode);
+                    if (color.equals("blanco")) {
+                        piezaUnicode = "♞";
+                    } else piezaUnicode = "♘";
+                    System.out.println();
+                    // Usamos el tablero para imprimir una representación visual
+                    tablero.imprimirTablero(fila, columna, caballo.getPosiciones(tablero), piezaUnicode);
 
-                break;
+                    break;
 
-            case "reina":
-                //Instancia reina
-                Reina reina= new Reina(columna, fila, color);
-                System.out.println("Los movimientos posibles son: "+ Arrays.toString(reina.getPosiciones(tablero)));
+                case "reina":
+                    //Instancia reina
+                    Reina reina = new Reina(columna, fila, color);
+                    System.out.println("Los movimientos posibles son: " + Arrays.toString(reina.getPosiciones(tablero)));
 
-                if (color.equals("blanco")){
-                    piezaUnicode = "♛";
-                }
-                else piezaUnicode = "♕";
-                System.out.println();
-                // Usamos el tablero para imprimir una representación visual
-                tablero.imprimirTablero(fila,columna,reina.getPosiciones(tablero),piezaUnicode);
-                break;
+                    if (color.equals("blanco")) {
+                        piezaUnicode = "♛";
+                    } else piezaUnicode = "♕";
+                    System.out.println();
+                    // Usamos el tablero para imprimir una representación visual
+                    tablero.imprimirTablero(fila, columna, reina.getPosiciones(tablero), piezaUnicode);
+                    break;
 
-            case "rey":
-                //Instancia rey
-                Rey rey = new Rey(columna, fila, color);
-                System.out.println("Los movimientos posibles son: "+ Arrays.toString(rey.getPosiciones(tablero)));
-                if (color.equals("blanco")){
-                    piezaUnicode = "♚";
-                }
-                else piezaUnicode = "♔";
-                System.out.println();
-                // Usamos el tablero para imprimir una representación visual
-                tablero.imprimirTablero(fila, columna, rey.getPosiciones(tablero), piezaUnicode);
+                case "rey":
+                    //Instancia rey
+                    Rey rey = new Rey(columna, fila, color);
+                    System.out.println("Los movimientos posibles son: " + Arrays.toString(rey.getPosiciones(tablero)));
+                    if (color.equals("blanco")) {
+                        piezaUnicode = "♚";
+                    } else piezaUnicode = "♔";
+                    System.out.println();
+                    // Usamos el tablero para imprimir una representación visual
+                    tablero.imprimirTablero(fila, columna, rey.getPosiciones(tablero), piezaUnicode);
 
-                break;
+                    break;
 
-            default:
-                System.out.println("Pieza invalida");
-                break;
+                default:
+                    System.out.println("Pieza invalida");
+                    break;
+            }
+
+            System.out.println("""
+            
+            Selecciona una opción:
+            0. Salir
+            1. Realizar otra operación
+            """);
+            sel = sc.nextInt();
         }
-        }
+        while (sel != 0);
     }
+}
 
