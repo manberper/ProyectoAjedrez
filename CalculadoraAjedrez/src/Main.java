@@ -228,9 +228,21 @@ public class Main {
             0. Salir
             1. Realizar otra operación
             """);
-            sel = sc.nextInt();
+            switch (sc.nextInt()) {
+
+                case 0:
+                    System.out.println("Has seleccionado salir.");
+                    sel = 0;
+
+                case 1:
+                    System.out.println("Has seleccionado realizar otra operación.");
+                    sel = 1;
+
+                default:
+                    System.out.println("Selección inválida.");
+            }
         }
-        while (sel != 0);
+        while (sel == 1);
     }
 }
 
