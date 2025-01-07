@@ -43,6 +43,7 @@ public class Main {
         }
         return pieza;
     }
+
     public static String color() {
         Scanner sc = new Scanner(System.in);
         String color = "";
@@ -65,6 +66,7 @@ public class Main {
         }
         return color;
     }
+
     public static int columna() {
         Scanner sc = new Scanner(System.in);
         int columna = 0;
@@ -94,6 +96,7 @@ public class Main {
         }
         return columna;
     }
+
     public static int fila() {
         Scanner sc = new Scanner(System.in);
         int fila = 0;
@@ -121,24 +124,24 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Bienvenido al calculador de movimientos de ajedrez.");
 
-        int sel = -1;
+        int sel = 1;
 
         do {
 
-        // Elegir pieza
-        String pieza = pieza();
+            // Elegir pieza
+            String pieza = pieza();
 
-        // Elegir color
-        String color = color();
+            // Elegir color
+            String color = color();
 
-        // Elegir la posición de la pieza (columna)
-        int columna = columna();
+            // Elegir la posición de la pieza (columna)
+            int columna = columna();
 
-        // Elegir la fila
-        int fila = fila();
+            // Elegir la fila
+            int fila = fila();
 
-        Tablero tablero = new Tablero();
-        String piezaUnicode;
+            Tablero tablero = new Tablero();
+            String piezaUnicode;
             switch (pieza) {
                 case "peon":
                     // Se importa la pieza y se imprimen los movimientos posibles
@@ -222,27 +225,36 @@ public class Main {
                     break;
             }
 
-            System.out.println("""
-            
-            Selecciona una opción:
-            0. Salir
-            1. Realizar otra operación
-            """);
-            switch (sc.nextInt()) {
+            // Selección de continuar o salir
+            boolean selValida = false;
+            while (!selValida) {
+                System.out.println("""
+                        
+                        Selecciona una opción:
+                        0. Salir
+                        1. Realizar otra operación
+                        """);
 
-                case 0:
-                    System.out.println("Has seleccionado salir.");
-                    sel = 0;
+                try {
+                    int sel2 = sc.nextInt();
 
-                case 1:
-                    System.out.println("Has seleccionado realizar otra operación.");
-                    sel = 1;
-
-                default:
-                    System.out.println("Selección inválida.");
+                    if (sel2 == 0) {
+                        System.out.println("Has seleccionado salir.");
+                        sel = 0;
+                        selValida = true;
+                    } else if (sel2 == 1) {
+                        System.out.println("Has seleccionado realizar otra operación.");
+                        selValida = true;
+                    } else {
+                        System.out.println("Selección inválida.");
+                    }
+                } catch (Exception e) {
+                    System.out.println("Entrada inválida. Intenta nuevamente.");
+                    sc.next(); // Limpia el buffer para que no se rompa
+                }
             }
+
         }
         while (sel == 1);
     }
 }
-
