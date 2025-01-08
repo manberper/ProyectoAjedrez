@@ -16,6 +16,8 @@ public class Peon2 {
         String[] posiblesMovimientos = new String[2];
         int cont = 0;
 
+
+
         // Movimiento de 1 casilla
         if (tablero.esPosicionValida(fila + direccion, columna)) {
             posiblesMovimientos[cont++] = tablero.obtenerPosicion(fila + direccion, columna);

@@ -144,6 +144,10 @@ public class Main {
             String piezaUnicode;
             switch (pieza) {
                 case "peon":
+                    if (color.equals("blanco") && fila == 1 || color.equals("negro") && fila == 8){
+                        System.out.println("El peón no puede colocarse en esa posición.");
+                        break;
+                    }
                     // Se importa la pieza y se imprimen los movimientos posibles
                     Peon2 peon2 = new Peon2(color, fila, columna);
                     System.out.println("Los movimientos posibles son: " + Arrays.toString(peon2.getPosiciones(tablero)));
